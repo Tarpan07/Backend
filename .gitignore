@@ -1,0 +1,8 @@
+*.log
+*.txt
+*.tmp
+*.env
+*.out
+*.err
+*.bak
+*.cache
