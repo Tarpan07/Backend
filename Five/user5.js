@@ -1,7 +1,6 @@
-const http = require('http');
 const fs = require('fs');
 
-const server = http.createServer((req, res) => {
+const userRequestHandler =(req, res) => {
   console.log(req.url, req.method);
 
   if (req.url === '/') {
@@ -51,9 +50,6 @@ const server = http.createServer((req, res) => {
   res.write('<body><h1>Like / Share / Subscribe</h1></body>');
   res.write('</html>');
   res.end();
-});
+};
 
-const PORT = 3001;
-server.listen(PORT, () => {
-  console.log(`Server running on address http://localhost:${PORT}`);
-});  
+module.exports=userRequestHandler;
