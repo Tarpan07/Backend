@@ -1,12 +1,13 @@
-const path= require('path');
+// Core Modules
+const path = require('path');
 
-const express= require('express');
-const userRouter= express.Router();
+// External Module
+const express = require('express');
+const userRouter = express.Router();
 
-const rootDir= require("../utils/pathUtil");
+// Local Module
+const homesController=require("../controllers/homes");
 
-userRouter.get("/",(req, res,next)=>{
-  res.sendFile(path.join(rootDir,'views','home.html'));
-});
+userRouter.get("/", homesController.getHomes);
 
-module.exports=userRouter;
+module.exports = userRouter;
