@@ -1,11 +1,11 @@
 const mongo= require('mongodb');
 const MongoClient = mongo.MongoClient;
-const MONGO_URL = "mongodb+srv://root:root@krypton.55avym9.mongodb.net/?appName=Krypton";
+const MONGO_URL = "";
 
 let _db;
 const mongoConnect=(callback)=>{
     MongoClient.connect(MONGO_URL).then((client)=>{
-        console.log(client);
+        //console.log(client);
         _db = client.db('airbnb');
         callback();
     }).catch((err)=>{
