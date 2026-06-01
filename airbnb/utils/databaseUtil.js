@@ -1,6 +1,7 @@
 const mongo= require('mongodb');
 const MongoClient = mongo.MongoClient;
 const MONGO_URL = "";
+//mongodb+srv://root:root@krypton.55avym9.mongodb.net/?appName=Krypton
 
 let _db;
 const mongoConnect=(callback)=>{

@@ -9,7 +9,7 @@ const storeRouter = require("./routes/storeRouter")
 const hostRouter = require("./routes/hostRouter")
 const rootDir = require("./utils/pathUtil");
 const errorsController = require("./controllers/errors");
-const {mongoConnect} = require('./utils/dataBaseUtil');
+const { default: mongoose } = require('mongoose');
 
 
 
@@ -28,8 +28,11 @@ app.use(express.static(path.join(rootDir, 'public')))
 app.use(errorsController.pageNotFound);
 
 const PORT = 3000;
-mongoConnect(()=>{
-app.listen(PORT, () => {
+const DB_PATH="mongodb+srv://root:root@krypton.55avym9.mongodb.net/airbnb?appName=Krypton";
+mongoose.connect(DB_PATH).then(()=>{
+  app.listen(PORT, () => {
   console.log(`Server running on address http://localhost:${PORT}`);
 });
-})
+} ).catch((err)=>{
+  console.log("Error connecting to MongoDB", err);
+});
