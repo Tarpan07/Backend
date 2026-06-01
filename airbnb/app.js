@@ -28,7 +28,7 @@ app.use(express.static(path.join(rootDir, 'public')))
 app.use(errorsController.pageNotFound);
 
 const PORT = 3000;
-const DB_PATH="mongodb+srv://root:root@krypton.55avym9.mongodb.net/airbnb?appName=Krypton";
+const DB_PATH="";
 mongoose.connect(DB_PATH).then(()=>{
   app.listen(PORT, () => {
   console.log(`Server running on address http://localhost:${PORT}`);
